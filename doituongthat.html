@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>doituong</title>
+</head>
+<body>
+<h1>+++++NOKIA+++++</h1>
+<button onclick="nokia.on()"> Bật </button>
+<button onclick="nokia.off()"> Tắt </button>
+<br>
+<br>
+<button onclick="nokia.charge()"> Sạc pin </button>
+<button onclick="nokia.checkpin()"> Kiểm tra pin </button>
+<br>
+<br>
+<br>
+<button onclick="nokia.msg()"> Soạn tin nhắn </button>
+<br>
+<br>
+<button onclick="alert(nokia.sent)"> Tin đã gửi </button>
+<br>
+<br>
+<button onclick="alert(nokia.inbox)"> Hộp tin đến </button>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1>*****IPH0NE*****</h1>
+<button onclick="iphone.charge()"> ISạc pin </button>
+<button onclick="iphone.checkpin()"> IKiểm tra pin </button>
+<br>
+<br>
+<br>
+<button onclick="iphone.msg()"> ISoạn tin nhắn </button>
+<br>
+<br>
+<button onclick="alert(iphone.sent)"> ITin đã gửi </button>
+<br>
+<br>
+<button onclick="alert(iphone.inbox)"> IHộp tin đến </button>
+<script>
+    let x = 0;
+    alert('Nhớ nhấp Bật trước khi sử dụng dịch vụ!');
+    let nokia = {
+        on: function() {
+            x = 1;
+            // alert(x)
+            alert('Bạn có thể dùng điện thoại!')
+        },
+        off: function() {
+            x = 0;
+            // alert(x)
+            alert('Điện thoại đã tắt!')
+        },
+        sent: [],
+        inbox: [],
+        draft: [],
+        battery: 100,
+        checkpin: function() {
+            alert(this.battery);
+            this.battery--;
+        },
+        charge: function() {
+            if (this.battery < 100) {
+                this.battery = 100;
+            }
+        },
+        msg: function() {
+            if (x == 1, this.battery > 0) {
+                let m = prompt();
+                this.sent.push(m);
+                iphone.inbox.push(m);
+                this.battery--;
+                alert('Kiểm tra inbox Iphone!');
+            } else if (this.battery == 0) {
+                alert('Hết pin!');
+            }
+        },
+    };
+    let iphone = {
+        battery: 1,
+        sent: [],
+        inbox: [],
+        checkpin: function() {
+            alert(this.battery);
+        },
+        charge: function() {
+            if (this.battery < 1) {
+                this.battery = 1;
+            }
+        },
+        msg: function() {
+            if (this.battery > 0) {
+                let im = prompt();
+                this.sent.push(im);
+                nokia.inbox.push(im);
+                this.battery--;
+                alert('Kiểm tra inbox Nokia!');
+            } else if (this.battery == 0) {
+                alert('Hết pin!');
+            }
+        },
+    };
+</script>
+</body>
+</html>
